@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+# HALO Modification to remove all secutiry and send through smtp.snolab.ca
+
 import email
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
@@ -12,6 +14,7 @@ from os.path import basename
 def send_mail(user, password, server, fromaddr, to, subject,
               message, attachments, filename):
     msg = MIMEMultipart()
+    fromaddr = 'daq@daqN.halo-r.snolab.ca'
     if fromaddr == '':
         fromaddr = user + '@' + server
     msg['From'] = fromaddr
@@ -42,11 +45,12 @@ def send_mail(user, password, server, fromaddr, to, subject,
             part['Content-Disposition'] = 'attachment; filename=' + basename(fname)
             msg.attach(part)
             f.close()
-    serv = smtplib.SMTP('smtp.' + server, 587)
+#    serv = smtplib.SMTP('smtp.' + server, 587)
+    serv = smtplib.SMTP('smtp.snolab.ca', 25)
     serv.ehlo()
-    serv.starttls()
-    serv.ehlo()
-    serv.login(user, password)
+#    serv.starttls()
+#    serv.ehlo()
+#    serv.login(user, password)
     to.replace(' ', '')
     serv.sendmail(fromaddr, to.split(','), msg.as_string())
     serv.close()

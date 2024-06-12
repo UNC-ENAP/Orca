@@ -119,6 +119,7 @@
 - (id)   init;
 - (void) dealloc;
 
+
 #pragma mark •••Accessors
 - (unsigned short) numBurstsNeeded;
 - (void) setNumBurstsNeeded:(unsigned short)aNumBurstsNeeded;

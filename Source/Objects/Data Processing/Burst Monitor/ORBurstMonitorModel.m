@@ -1427,13 +1427,13 @@ static NSString* ORBurstMonitorMinimumEnergyAllowed  = @"ORBurstMonitor Minimum 
         ORTaskSequence* tasks=[[ORTaskSequence taskSequenceWithDelegate:self] retain];
         [tasks setVerbose:NO];
         [tasks setTextToDelegate:YES];
-        [tasks addTask:@"/usr/bin/ssh" arguments:[NSArray arrayWithObjects:@"halo@142.51.71.223", burstcommand, nil]];
+        [tasks addTask:@"/usr/bin/ssh" arguments:[NSArray arrayWithObjects:@"halo@10.0.3.1", burstcommand, nil]];
         
         ORTaskSequence* tasks2=[[ORTaskSequence taskSequenceWithDelegate:self] retain];
         [tasks2 setVerbose:NO];
         [tasks2 setTextToDelegate:YES];
         // rhill: Here we will add our task for the SNEWS 2.0 alert.
-        [tasks addTask:@"/usr/bin/ssh" arguments:[NSArray arrayWithObjects:@"halosim@142.51.71.223", snews2burstcommand, nil]];
+        [tasks addTask:@"/usr/bin/ssh" arguments:[NSArray arrayWithObjects:@"halosim@10.0.3.1", snews2burstcommand, nil]];
         NSLog(@"end1\n");
         if(1-[[runbits objectAtIndex:6] intValue])  //Send to local machine  //mod change to ping again
         {
@@ -1445,15 +1445,15 @@ static NSString* ORBurstMonitorMinimumEnergyAllowed  = @"ORBurstMonitor Minimum 
         else{ //Send to halo shift
             NSLog(@"Pulse sent to SNEWS\n");
  //           [Cping setLaunchPath: @"/usr/bin/ssh"];  //@"/usr/bin/ssh"
-   //         [Cping setArguments: [NSArray arrayWithObjects: @"halo@142.51.71.223", burstcommand, nil]];  //.223 only for ug
-            //[Cping setArguments: [NSArray arrayWithObjects: @"halo@142.51.71.223", @"cd snews/coinccode/ ; mkdir AAASNEWSPINGTEST", nil]];
+   //         [Cping setArguments: [NSArray arrayWithObjects: @"halo@10.0.3.1", burstcommand, nil]];  //.223 only for ug
+            //[Cping setArguments: [NSArray arrayWithObjects: @"halo@10.0.3.1", @"cd snews/coinccode/ ; mkdir AAASNEWSPINGTEST", nil]];
         }  // -c successfully made directories in home
         NSLog(@"end2\n");
 //        [Cping launch]; //Send the ping!
         [tasks launch]; //snews1.0 ping
         [tasks2 launch]; //snews2.0 ping
         NSLog(@"end3\n");
-        //system("ssh halo@142.51.71.223 'cd snews/coinccode/ && ./cping all 0 0 0 3'"); freezes orca for about 30 seconds but works
+        //system("ssh halo@10.0.3.1 'cd snews/coinccode/ && ./cping all 0 0 0 3'"); freezes orca for about 30 seconds but works
         
         //NSData* pingdata;
         //pingdata = [pingfile readDataToEndOfFile]; //dont do this, it freezes orca
@@ -1502,13 +1502,13 @@ static NSString* ORBurstMonitorMinimumEnergyAllowed  = @"ORBurstMonitor Minimum 
         ORTaskSequence* tasks=[[ORTaskSequence taskSequenceWithDelegate:self] retain];
         [tasks setVerbose:NO];
         [tasks setTextToDelegate:YES];
-        [tasks addTask:@"/usr/bin/ssh" arguments:[NSArray arrayWithObjects:@"halo@142.51.71.223", burstcommand, nil]];
+        [tasks addTask:@"/usr/bin/ssh" arguments:[NSArray arrayWithObjects:@"halo@10.0.3.1", burstcommand, nil]];
         
         ORTaskSequence* tasks2=[[ORTaskSequence taskSequenceWithDelegate:self] retain];
         [tasks2 setVerbose:NO];
         [tasks2 setTextToDelegate:YES];
         // rhill: Here we will add our task for the SNEWS 2.0 alert.
-        [tasks addTask:@"/usr/bin/ssh" arguments:[NSArray arrayWithObjects:@"halosim@142.51.71.223", snews2burstcommand, nil]];
+        [tasks addTask:@"/usr/bin/ssh" arguments:[NSArray arrayWithObjects:@"halosim@10.0.3.1", snews2burstcommand, nil]];
         NSLog(@"end1\n");
         if(1-[[runbits objectAtIndex:6] intValue])  //Send to local machine  //mod change to ping again
         {
@@ -1520,7 +1520,7 @@ static NSString* ORBurstMonitorMinimumEnergyAllowed  = @"ORBurstMonitor Minimum 
         else{ //Send to halo shift
             NSLog(@"Pulse sent to SNEWS Test Server\n");
      //       [Cping setLaunchPath: @"/usr/bin/ssh"];  //@"/usr/bin/ssh"
-    //        [Cping setArguments: [NSArray arrayWithObjects: @"halo@142.51.71.223", burstcommand, nil]];  //.223 only for ug
+    //        [Cping setArguments: [NSArray arrayWithObjects: @"halo@10.0.3.1", burstcommand, nil]];  //.223 only for ug
         }  // -c successfully made directories in home
         NSLog(@"end2\n");
         [tasks launch]; //snews1.0 ping

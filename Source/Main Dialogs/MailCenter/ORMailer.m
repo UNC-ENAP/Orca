@@ -103,11 +103,14 @@
                
                 //subject
                 [args addObject:@"-s"];
-                [args addObject:[NSString stringWithFormat:@"\"%@\"", [self subject]]];
+                [args addObject:[self subject]];
+                //[args addObject:[NSString stringWithFormat:@"\"%@\"", [self subject]]];
       
                 //body
                 [args addObject:@"-m"];
-                NSString* content = [NSString stringWithFormat:@"\"Sent from ORCA running on: %@%@\"",computerName(),[[self body]string]];
+                NSString* content = [NSString stringWithFormat:@"\n\nSent from ORCA running on: %@\n\n\n%@",computerName(),[[self body]string]];
+                                
+                //NSString* content = [NSString stringWithFormat:@"\"Sent from ORCA running on: %@%@\"",computerName(),[[self body]string]];
                 [args addObject:content];
                 
                 NSTask* task = [[[NSTask alloc] init] autorelease];
